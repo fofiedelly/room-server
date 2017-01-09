@@ -3,9 +3,15 @@ Room Server Code
 """
 from flask import Flask
 from photosensor import get_light_value
+from time import sleep
+from flask_cors import CORS, cross_origin
+
 
 app = Flask(__name__)
 app.debug = True
+cors = CORS(app, resources={r"*": {"origins": "*"}})
+
+
 
 
 @app.route("/status/<module>")
@@ -22,7 +28,15 @@ def get_light_brightness():
     """
     Get the status of the photosensor
     """
-    return get_light_value()
+    val = []
+
+    val.append(get_light_value)
+    sleep(1)
+    val.append(get_light_value)
+    sleep(1)
+    val.append(get_light_value)
+    average = sum(val) / len(val)
+    return str(average)
 
 
 def get_light_status():
