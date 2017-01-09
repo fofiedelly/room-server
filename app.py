@@ -5,6 +5,7 @@ from flask import Flask
 from photosensor import get_light_value
 
 app = Flask(__name__)
+app.debug = True
 
 
 @app.route("/status/<module>")
