@@ -30,11 +30,11 @@ def get_light_brightness():
     """
     val = []
 
-    val.append(get_light_value)
+    val.append(get_light_value())
     sleep(1)
-    val.append(get_light_value)
+    val.append(get_light_value())
     sleep(1)
-    val.append(get_light_value)
+    val.append(get_light_value())
     average = sum(val) / len(val)
     return str(average)
 
