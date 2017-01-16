@@ -53,6 +53,7 @@ def licht_an():
               options='\x02',
               command='D0',
               parameter='\x05')
+    return True
 
 
 @app.route('/licht/aus')
@@ -70,6 +71,7 @@ def licht_aus():
               options='\x02',
               command='D0',
               parameter='\x04')
+    return True
 
 
 
